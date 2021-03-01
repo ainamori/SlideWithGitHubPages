@@ -1,4 +1,4 @@
-## 　Python(Dash/Cytoscape)を使ったNetwork Auto Visualization
+## Python(Dash/Cytoscape)を使ったNetwork Auto Visualization
 
  Author: Akira Inamori<akira.inamori@tf-ebina.com>
 
