@@ -1,27 +1,31 @@
 ## Python(Dash/Cytoscape)を使ったNetwork Auto Visualization
 
- Author: Akira Inamori<akira.inamori@tf-ebina.com>
+ Author: Akira Inamori <<akira.inamori@tf-ebina.com>>
 
 ---
 
-## 概要
+## 開発背景
 
-　Swith/Routerの接続状況を確認する方法や描画ツールは数多く存在するが
-　L3以上のレイヤで記載する物が殆どであり、物理レイヤに焦点を当てたツールは少ない。
-　概念的な構成把握も重要だが、NOC作業に重要なのは
-　「このデバイスのこのポートは、どのデバイスのどこのポートに繋がって（刺さって）いるのか」です。
-　そこで、本発表ではネットワーク機器から得た情報（lldp neighbors)を元に
-　接続状況を描画する事を試みたのでその成果を発表します。
 
+- Swith/Routerの接続状況を確認する方法や描画ツールは数多く存在するがL3以上のレイヤで記載する物が殆どであり、物理レイヤに焦点を当てたツールは少ない。
+- 概念的な構成把握も重要だが、NOC作業に重要なのは「このデバイスのこのポートは、どのデバイスのどこのポートに繋がって（刺さって）いるのか」です。
+- そこで、本発表ではネットワーク機器から得た情報（lldp neighbors)を元に
+接続状況を描画する事を試みたのでその成果を発表します。
+
+---
 
 ### 関連技術
-　napalm: (https://napalm-automation.net/)
- dash/cytoscape: https://dash.plotly.com/cytoscape
 
+- napalm: (https://napalm-automation.net/)
+- dash/cytoscape: https://dash.plotly.com/cytoscape
+
+---
 
 ### 成果物
 　https://github.com/ainamori/dash-network-visualiser
 　　（docker-composeで起動することで簡単にデモ閲覧が可能）
+
+---
 
 ### 備考欄
 　「やってみた」といえばそのままですが
