@@ -1,6 +1,21 @@
 ## Python(Dash/Cytoscape)を使ったNetwork Auto Visualization
 
  Author: Akira Inamori <<akira.inamori@tf-ebina.com>>
+ 2021/03/06(Sat) @ Open Source Conference 2021 Online/Spring
+
+
+---
+
+## 自己紹介
+
+![myphoto](https://avatars.githubusercontent.com/u/8357830?s=460&u=b451b623bcc515093cf4ab18acd498df704181f1&v=4)
+
+- 稲森 景 (Akira Inamori)
+  - ainamori@github
+  - インフラエンジニア
+  - 主な活動履歴
+    - PyConJP 2019, 2020 NOC staff
+    - PHPカンファレンス 2019, 2020 NOC staff
 
 ---
 
@@ -30,16 +45,16 @@
 ### デモ
 
 
+#### Code hack
 
-### 備考欄
-　「やってみた」といえばそのままですが
-　dash(cytoscape)のソースコードを参照しながら
-　「実はこんな情報も詰め込める」というちょっとしたHack/Tipsを交えて紹介したいと思います。
+- 実はこんなこともできる
+ - node info, edge info以外にも詰め込める
+
 
 ---
 
 ## Slide URL
-- http://yamap55.github.io/SlideWithGitHubPages/index.html?slide=example/slide1.md
+- https://ainamori.github.io/SlideWithGitHubPages/?slide=osc/network-visualize.md
 
 ---
 
