@@ -1,6 +1,10 @@
 # Network Auto Visualization by Dash/Cytoscape
 
-- 2021/03/06(Sat) @ Open Source Conference 2021 Online/Spring
+<img src="https://dash.plotly.com/assets/images/logo-plotly.png" , style="width:100px;"/>
+<img src="https://cytoscape.org/images/logo/cy3logoOrange.svg" , style="width:100px;"/>
+
+- 2021/03/06(Sat)
+  - Open Source Conference 2021 Online/Spring
 
 ---
 
@@ -32,55 +36,81 @@
 
 ---
 
-## 開発背景
+## 開発の目的
 
-- ネットワーク機器を設置、運用する上で物理構成が知りたい
-
-  - 設計時は<i class="far fa-file-excel"></i>**Excel**で管理されてるのでカンペキ
-    - でも現場ではポート不良、急な増設で増えたり減ったりする
-  - ネットワーク図が欲しい
-    - <i class="far fa-file-excel"></i>**Excel**を元に<i class="far fa-file-powerpoint"></i>**PowerPoint**で描く？
-  - 意外と世の中に無い L1, L2 描画ツール
+- インフラの可視化
+  - ネットワーク機器の接続状況を瞬時に把握したい
+  - ネットワークに参加している機器の情報が知りたい
 
 ---
 
-## アプリケーション設計
+## 開発の動機
 
-- Input
-  - NW エンジニアが簡単に集められる書式を受け付ける
-    - show/get XXX 　とか
-    - ansible gather_fatcs とか
-- Output
-  - **絵を描く**
-    - 絵だけでなくリンク情報なども取得できるように
+- 意外と世の中に存在しない L2 レイヤの可視化ツール
+
+  - L3 以上だとそれなりに存在する
+    - でも Netbox は主機能から外れちゃった・・・
+
+- 構築時に設計図って書いてないの？
+
+  - 設計時は<i class="far fa-file-excel"></i>**Excel**で管理されてるのでカンペキ
+    - でも現場ではポート不良、急な増設で増えたり減ったりする
+  - 設計図で詳細なネットワーク図を書く人はあまりいない
+
+    - L3 以上であれば書くが、以下略
+
+  - そもそも作業が面倒
+    - <i class="far fa-file-excel"></i>**Excel**を元に<i class="far fa-file-powerpoint"></i>**PowerPoint**で描く？
+
+---
+
+# ないならば作るしか無い<img src="images/light.png", style="width:150px;"/>
+
+---
+
+## 基本設計
+
+- 入力仕様
+
+  - NW エンジニアが簡単に集められるものにする
+    - C 社とか、J 社とか、A 社辺りの汎用的なコマンド・オプションにする
+      - show lldp_neighbors (show lldp_neighbors_detail)にした
+    - 集めやすく加工しやすい取得方法にする
+      - json とか YAML とか
+      - ansible gather_fatcs とか
+    - [napalm](https://napalm-automation.net/)で解決
+
+- 出力仕様
+  - Web ブラウザで閲覧できるようにする
+    - Github Page, Gitlab Page でも閲覧できると嬉しい
+  - ネットワーク図だけでなく機器情報なども取得できるようにする
     - クリック・マウスオーバーで表示とか
 
 ---
 
-## 開発物詳細
+## 開発コード
 
-- Input
-  - [napalm](https://napalm-automation.net/)を使って取得するデータを利用する
-    - 流石に show lldp 生データは汎用性がなさ過ぎてツライ
-- Output
-  - (Dash + cytoscape](https://dash.plotly.com/cytoscape]で作った
-    - javascript ならばただの Web サーバに配置できる
-      - スミマセン、javascript ワカリマセン
+- [Dash + cytoscape](https://github.com/plotly/dash-cytoscape)
+
+  - [ドキュメント](https://dash.plotly.com/cytoscape)
+    - Python と言っているが cytoscape.js に強く依存
+      - javascript でそのまま作れるならば単なる Web サーバに配置できるが・・・
+        - スミマセン、javascript ワカリマセン
+
+- 開発上の Tips
+  - 実はマニュアルに記載されたパラメータ以外も埋め込める
 
 ---
 
 ## アプリケーションデモ
 
-- 作ってみたので公開もしてみた
+- 以下に公開済み
 
 ```bash
  $ git clone https://github.com/ainamori/dash-network-visualiser.git
  $ cd dash-network-visualiser
  $ docker-compose up -d
 ```
-
-- 開発上の Tips
-  - 実はマニュアルに記載されたパラメータ以外も埋め込める
 
 ---
 
@@ -118,6 +148,8 @@
   - https://github.com/yamap55/SlideWithGitHubPages
 
 - 本スライド URL
+
   - https://ainamori.github.io/SlideWithGitHubPages/?slide=osc/network-visualize.md
-- 成果物 repo
+
+- 成果物 repo（再掲
   - https://github.com/ainamori/dash-network-visualiser
